@@ -1,7 +1,7 @@
 import { Theme } from '../../@types/theme'
 
 export const lightTheme: Theme = {
-  colors: {
+  color: {
     base: {
       background: '#FAFAFA',
       button: '#FAFAFA',
