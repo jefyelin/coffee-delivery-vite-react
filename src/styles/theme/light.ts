@@ -23,4 +23,8 @@ export const lightTheme: Theme = {
       yellowLight: '#F1E9C9',
     },
   },
+  screen: {
+    md: '768px',
+    max: '1120px',
+  },
 }

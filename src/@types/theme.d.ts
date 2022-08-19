@@ -21,6 +21,12 @@ type ThemeColor = {
   }
 }
 
+type Screen = {
+  md: string
+  max: string
+}
+
 export type Theme = {
   color: ThemeColor
+  screen: Screen
 }
