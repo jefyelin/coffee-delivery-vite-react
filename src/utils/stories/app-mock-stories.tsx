@@ -1,14 +1,16 @@
 import { ReactNode } from 'react'
 import { Helmet } from 'react-helmet'
+import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyle } from '../../styles'
 import { lightTheme } from '../../styles/theme'
 
 interface AppStoriesProps {
   children: ReactNode
+  withRoutes?: boolean
 }
 
-export function AppStories({ children }: AppStoriesProps) {
+export function AppMockStories({ children, withRoutes = true }: AppStoriesProps) {
   return (
     <>
       <Helmet>
@@ -21,7 +23,8 @@ export function AppStories({ children }: AppStoriesProps) {
         />
       </Helmet>
       <ThemeProvider theme={lightTheme}>
-        {children}
+        {withRoutes && <BrowserRouter>{children}</BrowserRouter>}
+        {!withRoutes && <>{children}</>}
         <GlobalStyle />
       </ThemeProvider>
     </>

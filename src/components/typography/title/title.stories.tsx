@@ -1,9 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { AppStories } from '../../../utils/stories'
+import { AppMockStories } from '../../../utils/stories'
 import { Title, TitleProps } from './title'
 
 export default {
-  title: 'Typography/Title',
+  title: 'Components/Typography/Title',
   component: Title,
   argTypes: {
     children: {
@@ -17,9 +17,9 @@ export const Playground: ComponentStory<typeof Title> = ({
   color,
   variant,
 }: TitleProps) => (
-  <AppStories>
+  <AppMockStories>
     <Title variant={variant ? variant : 'h1'} color={color}>
       {children ? children : 'Title exemple'}
     </Title>
-  </AppStories>
+  </AppMockStories>
 )

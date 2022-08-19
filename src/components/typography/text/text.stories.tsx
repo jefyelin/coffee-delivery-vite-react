@@ -1,9 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { AppStories } from '../../../utils/stories'
+import { AppMockStories } from '../../../utils/stories'
 import { Text, TextProps } from './text'
 
 export default {
-  title: 'Typography/Text',
+  title: 'Components/Typography/Text',
   component: Text,
   argTypes: {
     children: {
@@ -17,9 +17,9 @@ export const Playground: ComponentStory<typeof Text> = ({
   color,
   variant,
 }: TextProps) => (
-  <AppStories>
+  <AppMockStories>
     <Text variant={variant ? variant : 'regularM'} color={color}>
       {children ? children : 'Text exemple'}
     </Text>
-  </AppStories>
+  </AppMockStories>
 )

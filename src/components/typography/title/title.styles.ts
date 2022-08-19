@@ -6,7 +6,7 @@ interface HeadingProps {
 }
 
 export const HeadingXL = styled.h1<HeadingProps>`
-  font-weight: '800';
+  font-weight: 800;
   font-size: 3rem;
 
   ${({ customColor, theme }) => {
@@ -16,8 +16,12 @@ export const HeadingXL = styled.h1<HeadingProps>`
   }}
 `
 
+export const HeadingXLMobile = styled(HeadingXL)`
+  font-size: 2.25rem;
+`
+
 export const HeadingL = styled.h2<HeadingProps>`
-  font-weight: '800';
+  font-weight: 800;
   font-size: 2rem;
 
   ${({ customColor, theme }) => {
@@ -28,7 +32,7 @@ export const HeadingL = styled.h2<HeadingProps>`
 `
 
 export const HeadingM = styled.h3<HeadingProps>`
-  font-weight: '800';
+  font-weight: 800;
   font-size: 1.5rem;
 
   ${({ customColor, theme }) => {
@@ -39,7 +43,7 @@ export const HeadingM = styled.h3<HeadingProps>`
 `
 
 export const HeadingS = styled.h4<HeadingProps>`
-  font-weight: '700';
+  font-weight: 700;
   font-size: 1.25rem;
 
   ${({ customColor, theme }) => {
@@ -50,7 +54,7 @@ export const HeadingS = styled.h4<HeadingProps>`
 `
 
 export const HeadingXS = styled.h5<HeadingProps>`
-  font-weight: '700';
+  font-weight: 700;
   font-size: 1.125rem;
 
   ${({ customColor, theme }) => {

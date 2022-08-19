@@ -1,3 +1,13 @@
+import { InfoSection } from './components/info-section'
+import { Background, InfoSectionContainer, Main } from './home.styles'
+
 export function Home() {
-  return <h1>Home</h1>
+  return (
+    <Main>
+      <InfoSectionContainer>
+        <InfoSection />
+        <Background />
+      </InfoSectionContainer>
+    </Main>
+  )
 }

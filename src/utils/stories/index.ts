@@ -1,1 +1,1 @@
-export * from './app-stories'
+export * from './app-mock-stories'
