@@ -7,7 +7,7 @@ interface AppTestsProps {
   children: ReactNode
 }
 
-export function AppTests({ children }: AppTestsProps) {
+export function AppAllProvidersForTheTests({ children }: AppTestsProps) {
   return (
     <ThemeProvider theme={lightTheme}>
       {children}

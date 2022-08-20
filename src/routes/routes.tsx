@@ -10,6 +10,7 @@ export function Routes() {
       </header>
       <ReactRouterDomRoutes>
         <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
       </ReactRouterDomRoutes>
     </>
   )
