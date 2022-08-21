@@ -4,7 +4,7 @@ export const lightTheme: Theme = {
   color: {
     base: {
       background: '#FAFAFA',
-      button: '#FAFAFA',
+      button: '#E6E5E5',
       card: '#F3F2F2',
       hover: '#D7D5D5',
       input: '#EDEDED',

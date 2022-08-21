@@ -19,5 +19,6 @@ export const GlobalStyle = createGlobalStyle`
 
   button {
     border: none;
+    background: none;
   }
 `
