@@ -12,5 +12,6 @@ export const Container = styled.nav`
 
 export const LocationAndCartContainer = styled.div`
   display: flex;
+  align-items: center;
   gap: 0.75rem;
 `
