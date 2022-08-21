@@ -6,6 +6,7 @@ import { Title, TitleVariant } from './title'
 describe('Title', () => {
   test.each<{ variant: TitleVariant }>([
     { variant: 'h1' },
+    { variant: 'h1-mobile' },
     { variant: 'h2' },
     { variant: 'h3' },
     { variant: 'h4' },

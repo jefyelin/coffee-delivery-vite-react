@@ -8,6 +8,7 @@ describe('Text', () => {
     { variant: 'boldL' },
     { variant: 'boldM' },
     { variant: 'boldS' },
+    { variant: 'boldXS' },
     { variant: 'regularL' },
     { variant: 'regularM' },
     { variant: 'regularS' },

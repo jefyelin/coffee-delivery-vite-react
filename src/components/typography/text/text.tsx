@@ -4,12 +4,20 @@ import {
   BoldTextL,
   BoldTextM,
   BoldTextS,
+  BoldTextXS,
   RegularTextL,
   RegularTextM,
   RegularTextS,
 } from './text.styles'
 
-export type TextVariant = 'regularL' | 'regularM' | 'regularS' | 'boldL' | 'boldM' | 'boldS'
+export type TextVariant =
+  | 'regularL'
+  | 'regularM'
+  | 'regularS'
+  | 'boldL'
+  | 'boldM'
+  | 'boldS'
+  | 'boldXS'
 
 export interface TextProps extends HTMLAttributes<HTMLParagraphElement> {
   children: ReactNode
@@ -49,6 +57,11 @@ export function Text({ children, color, variant, ...props }: TextProps) {
         <BoldTextS customColor={color} {...props}>
           {children}
         </BoldTextS>
+      )}
+      {variant === 'boldXS' && (
+        <BoldTextXS customColor={color} {...props}>
+          {children}
+        </BoldTextXS>
       )}
     </>
   )

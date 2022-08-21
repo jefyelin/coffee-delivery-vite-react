@@ -46,3 +46,7 @@ export const BoldTextM = styled(DefaultBoldText)`
 export const BoldTextS = styled(DefaultBoldText)`
   font-size: 0.75rem;
 `
+
+export const BoldTextXS = styled(DefaultBoldText)`
+  font-size: 0.625rem;
+`
