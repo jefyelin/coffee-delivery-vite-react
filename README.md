@@ -1,1 +1,1 @@
-# coffe-delivery-vite-react
+# coffee-delivery-vite-react
