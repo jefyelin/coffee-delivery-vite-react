@@ -4,16 +4,20 @@ import backgroundUrl from '../../assets/images/background-intro.png'
 export const Main = styled.main``
 
 export const InfoSectionContainer = styled.div`
-  position: absolute;
+  position: relative;
   left: 0;
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 0 1rem;
+  padding: 0 1rem 5.75rem;
 
   section {
     max-width: ${({ theme }) => theme.screen.max};
   }
+`
+
+export const CatalogSectionContainer = styled.div`
+  margin-top: 2rem;
 `
 
 export const Background = styled.div`
