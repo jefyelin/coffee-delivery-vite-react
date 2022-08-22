@@ -5,7 +5,7 @@ export const Container = styled.div`
   min-width: 16rem;
   min-height: 19.375rem;
   width: 16rem;
-  padding: 0 1.5rem 1.25rem;
+  padding: 0 1rem 1rem;
   border-radius: 0.375rem 2.25rem;
   display: flex;
   flex-direction: column;

@@ -1,8 +1,8 @@
 import { ShoppingCart } from 'phosphor-react'
-import imageUrlTest from '../../../../../../assets/images/products/coffee-arabe.png'
 import { Counter } from '../../../../../../components/counter'
 import { Text } from '../../../../../../components/typography/text'
 import { Title } from '../../../../../../components/typography/title'
+import { Product } from '../../../../../../domain/models/product'
 import {
   ActionContainer,
   BuyContainer,
@@ -15,23 +15,29 @@ import {
   ValueContainer,
 } from './card-catalog.styles'
 
-export function CardCatalog() {
+interface CardCatalog {
+  product: Product
+}
+
+export function CardCatalog({ product }: CardCatalog) {
   return (
-    <Container>
-      <Image src={imageUrlTest} alt='' />
+    <Container id={product.id}>
+      <Image src={product.image.url} alt={product.image.description} />
       <TagsContainer>
-        <Tag>
-          <Text variant='boldXS' color='yellowDark'>
-            {'especial'.toUpperCase()}
-          </Text>
-        </Tag>
+        {product.tags.map((tag) => (
+          <Tag key={tag.id}>
+            <Text variant='boldXS' color='yellowDark'>
+              {tag.name.toUpperCase()}
+            </Text>
+          </Tag>
+        ))}
       </TagsContainer>
       <DescriptionContainer>
         <Title variant='h4' color='subtitle'>
-          Árabe
+          {product.name}
         </Title>
         <Text variant='regularS' color='label'>
-          Bebida preparada com grãos de café árabe e especiarias
+          {product.description}
         </Text>
       </DescriptionContainer>
       <BuyContainer>
@@ -40,13 +46,15 @@ export function CardCatalog() {
             R$
           </Text>
           <Text variant='boldL' color='text'>
-            9,90
+            {new Intl.NumberFormat('pt-BR', {
+              minimumFractionDigits: 2,
+            }).format(product.price)}
           </Text>
         </ValueContainer>
         <ActionContainer>
-          <Counter />
-          <Cart>
-            <ShoppingCart size={22} weight='fill' />
+          <Counter item={{ name: product.name, id: product.id }} />
+          <Cart aria-label={`Adicionar ${product.name} no carrinho de compras`}>
+            <ShoppingCart size={22} weight='fill' alt='Ícone de um carrinho de compras' />
           </Cart>
         </ActionContainer>
       </BuyContainer>
