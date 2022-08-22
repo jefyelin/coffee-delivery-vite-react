@@ -39,3 +39,13 @@ export const TextContainer = styled.div<TextContainerProps>`
       padding-left: 0.25rem;
     `}
 `
+
+export const AccessibilityHiddenCounterValue = styled.span`
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  font-size: 0;
+`
