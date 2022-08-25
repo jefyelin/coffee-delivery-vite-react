@@ -11,7 +11,7 @@ export const ContentContainer = styled.div`
   max-width: ${({ theme }) => theme.screen.max};
   padding: 0 1rem;
 
-  @media screen and (min-width: ${({ theme }) => theme.screen.max}) {
+  @media screen and (min-width: ${({ theme }) => theme.screen.lg}) {
     padding: 0;
   }
 `
