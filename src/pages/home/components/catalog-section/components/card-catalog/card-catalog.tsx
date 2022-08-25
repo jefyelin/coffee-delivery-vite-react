@@ -1,8 +1,10 @@
 import { ShoppingCart } from 'phosphor-react'
+import { useNavigate } from 'react-router-dom'
 import { Counter } from '../../../../../../components/counter'
 import { Text } from '../../../../../../components/typography/text'
 import { Title } from '../../../../../../components/typography/title'
 import { Product } from '../../../../../../domain/models/product'
+import { useCheckout } from '../../../../../../hooks/checkout'
 import {
   ActionContainer,
   BuyContainer,
@@ -20,6 +22,16 @@ interface CardCatalog {
 }
 
 export function CardCatalog({ product }: CardCatalog) {
+  const { addItemToCart } = useCheckout()
+
+  const navigate = useNavigate()
+
+  const handleAddItemToCart = () => {
+    addItemToCart(product)
+
+    navigate('/checkout')
+  }
+
   return (
     <Container id={product.id}>
       <Image src={product.image.url} alt={product.image.description} />
@@ -52,8 +64,11 @@ export function CardCatalog({ product }: CardCatalog) {
           </Text>
         </ValueContainer>
         <ActionContainer>
-          <Counter item={{ name: product.name, id: product.id }} />
-          <Cart aria-label={`Adicionar ${product.name} no carrinho de compras`}>
+          <Counter product={product} />
+          <Cart
+            onClick={() => handleAddItemToCart()}
+            aria-label={`Adicionar ${product.name} no carrinho de compras`}
+          >
             <ShoppingCart size={22} weight='fill' alt='Ícone de um carrinho de compras' />
           </Cart>
         </ActionContainer>
