@@ -1,10 +1,10 @@
 import { Product } from './product'
 
-type ItemsCart = {
+export type ItemCart = {
   product: Product
   quantity: number
-}[]
+}
 
 export type Cart = {
-  items: ItemsCart
+  items: ItemCart[]
 }
