@@ -26,5 +26,6 @@ export const lightTheme: Theme = {
   screen: {
     md: '768px',
     max: '1120px',
+    lg: '1220px',
   },
 }

@@ -24,6 +24,7 @@ type ThemeColor = {
 type Screen = {
   md: string
   max: string
+  lg: string
 }
 
 export type Theme = {
