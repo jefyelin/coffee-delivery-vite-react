@@ -18,6 +18,7 @@
     "storybook:build": "build-storybook"
   },
   "dependencies": {
+    "immer": "^9.0.15",
     "nanoid": "^4.0.0",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
+    "@faker-js/faker": "^7.4.0",
     "@mdx-js/react": "^1.6.22",
     "@storybook/addon-a11y": "^6.5.10",
     "@storybook/addon-actions": "^6.5.10",
