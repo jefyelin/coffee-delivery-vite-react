@@ -1,40 +1,51 @@
 import { Minus, Plus } from 'phosphor-react'
-import { useCounterReducer } from '../../hooks/counter-reducer'
+import { Product } from '../../domain/models/product'
+import { useCheckout } from '../../hooks/checkout'
 import { Text } from '../typography/text'
 import { AccessibilityHiddenCounterValue, Button, Container, TextContainer } from './counter.styles'
 
 interface CounterProps {
-  item: {
-    id: string
-    name: string
-  }
+  product: Product
 }
 
-export function Counter({ item }: CounterProps) {
-  const { state, decrement, increment } = useCounterReducer({ initialCount: 0 })
+export function Counter({ product }: CounterProps) {
+  const { decrementItemQuantity, incrementItemQuantity, getItemQuantityByProductId } = useCheckout()
 
-  const countIsEqualToZero = state.count === 0
-  const countIsEqualOne = state.count === 1
-  const countIsGreaterThanOne = state.count > 1
+  const itemQuantity = getItemQuantityByProductId(product.id)
+
+  const countIsEqualToZero = itemQuantity === 0
+  const countIsEqualOne = itemQuantity === 1
+  const countIsGreaterThanOne = itemQuantity > 1
+
+  const handleDecrementItemQuantity = () => decrementItemQuantity(product)
+  const handleIncrementItemQuantity = () => incrementItemQuantity(product)
 
   return (
-    <Container aria-describedby={item.id}>
+    <Container aria-describedby={product.id}>
       {!countIsEqualToZero && (
-        <Button onClick={decrement} type='button' aria-label={`Remover ${item.name}`}>
+        <Button
+          onClick={handleDecrementItemQuantity}
+          type='button'
+          aria-label={`Remover ${product.name}`}
+        >
           <Minus size={14} weight='bold' alt='Ícone com sinal de menos.' />
         </Button>
       )}
       <TextContainer shouldSetLeftPedding={countIsEqualToZero} aria-live='polite'>
         <Text variant='regularM'>
-          {state.count}
+          {itemQuantity}
           <AccessibilityHiddenCounterValue>
-            {countIsEqualToZero && `, nenhum ${item.name} adicionado`}
-            {countIsEqualOne && `item adicionado: ${item.name}`}
-            {countIsGreaterThanOne && `itens adicionados: ${item.name}`}
+            {countIsEqualToZero && `, nenhum ${product.name} adicionado`}
+            {countIsEqualOne && `item adicionado: ${product.name}`}
+            {countIsGreaterThanOne && `itens adicionados: ${product.name}`}
           </AccessibilityHiddenCounterValue>
         </Text>
       </TextContainer>
-      <Button onClick={increment} type='button' aria-label={`Adicionar ${item.name}`}>
+      <Button
+        onClick={handleIncrementItemQuantity}
+        type='button'
+        aria-label={`Adicionar ${product.name}`}
+      >
         <Plus size={14} weight='bold' alt='Ícone com sinal de mais.' />
       </Button>
     </Container>
