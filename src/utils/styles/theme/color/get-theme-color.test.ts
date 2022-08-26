@@ -20,6 +20,7 @@ describe('getThemeColor', () => {
     { color: 'yellow', correctThemeColor: lightTheme.color.product.yellow },
     { color: 'yellowDark', correctThemeColor: lightTheme.color.product.yellowDark },
     { color: 'yellowLight', correctThemeColor: lightTheme.color.product.yellowLight },
+    { color: 'error', correctThemeColor: lightTheme.color.product.error },
     { color: undefined, correctThemeColor: lightTheme.color.base.text },
   ])(
     'should return the correct color of the light theme if the color is $color',

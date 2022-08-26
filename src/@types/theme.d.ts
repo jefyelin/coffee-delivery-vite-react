@@ -18,6 +18,7 @@ type ThemeColor = {
     purple: string
     purpleLight: string
     purpleDark: string
+    error: string
   }
 }
 

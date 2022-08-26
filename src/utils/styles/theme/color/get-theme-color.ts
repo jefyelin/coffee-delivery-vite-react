@@ -17,6 +17,7 @@ export type ThemeColorType =
   | 'yellow'
   | 'yellowLight'
   | 'yellowDark'
+  | 'error'
 
 type GetThemeColorParams = {
   theme: DefaultTheme
@@ -42,6 +43,7 @@ export function getThemeColor({ customColor, defaultColor, theme }: GetThemeColo
     yellow: theme.color.product.yellow,
     yellowDark: theme.color.product.yellowDark,
     yellowLight: theme.color.product.yellowLight,
+    error: theme.color.product.error,
   }
 
   return customColor ? themeColor[customColor] : themeColor[defaultColor]

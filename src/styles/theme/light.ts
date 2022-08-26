@@ -21,6 +21,7 @@ export const lightTheme: Theme = {
       yellow: '#DBAC2C',
       yellowDark: '#C47F17',
       yellowLight: '#F1E9C9',
+      error: '#D44444',
     },
   },
   screen: {
