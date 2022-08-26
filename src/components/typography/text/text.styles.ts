@@ -19,7 +19,7 @@ const DefaultRegularText = styled(DefaultText)`
   font-weight: 400;
 `
 
-const DefaultBoldText = styled(DefaultText)`
+const DefaultBoldText = styled(DefaultRegularText)`
   font-weight: 700;
 `
 
@@ -33,6 +33,11 @@ export const RegularTextM = styled(DefaultRegularText)`
 
 export const RegularTextS = styled(DefaultRegularText)`
   font-size: 0.875rem;
+`
+
+export const RegularItalicTextS = styled(DefaultText)`
+  font-style: italic;
+  font-size: 0.75rem;
 `
 
 export const BoldTextL = styled(DefaultBoldText)`
