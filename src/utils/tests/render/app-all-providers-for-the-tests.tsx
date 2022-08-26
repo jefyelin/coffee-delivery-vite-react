@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
 import { ThemeProvider } from 'styled-components'
+import { CheckoutProvider } from '../../../context/checkout'
 import { GlobalStyle } from '../../../styles'
 import { lightTheme } from '../../../styles/theme'
 
@@ -10,7 +11,7 @@ interface AppTestsProps {
 export function AppAllProvidersForTheTests({ children }: AppTestsProps) {
   return (
     <ThemeProvider theme={lightTheme}>
-      {children}
+      <CheckoutProvider>{children}</CheckoutProvider>
       <GlobalStyle />
     </ThemeProvider>
   )
