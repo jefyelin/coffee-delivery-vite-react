@@ -2,7 +2,7 @@ import { act, renderHook } from '@testing-library/react'
 import { describe } from 'vitest'
 import { ItemCart } from '../../domain/models/cart'
 import { Product } from '../../domain/models/product'
-import { additionalProductMock, productMock } from './mocks'
+import { additionalProductMock, productMock } from '../../mocks'
 import { useCartReducer } from './use-cart-reducer'
 
 describe('useCartReducer', () => {

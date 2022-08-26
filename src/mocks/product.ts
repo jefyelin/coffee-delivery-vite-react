@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker'
 import { nanoid } from 'nanoid'
-import { Product } from '../../../domain/models/product'
+import { Product } from '../domain/models/product'
 
 export const productMock: Product = {
   description: faker.commerce.productDescription(),

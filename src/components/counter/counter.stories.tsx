@@ -1,6 +1,5 @@
-import { faker } from '@faker-js/faker'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { nanoid } from 'nanoid'
+import { productMock } from '../../mocks'
 import { AppMockStories } from '../../utils/stories'
 import { Counter } from './counter'
 
@@ -11,22 +10,7 @@ export default {
 export const Playground: ComponentStory<typeof Counter> = () => {
   return (
     <AppMockStories>
-      <Counter
-        product={{
-          description: faker.commerce.productDescription(),
-          id: nanoid(),
-          image: {
-            description: faker.commerce.productDescription(),
-            url: faker.image.imageUrl(),
-          },
-          name: faker.commerce.productName(),
-          price: Number(faker.commerce.price()),
-          tags: [
-            { id: nanoid(), name: faker.commerce.productAdjective() },
-            { id: nanoid(), name: faker.commerce.productAdjective() },
-          ],
-        }}
-      />
+      <Counter product={productMock} />
     </AppMockStories>
   )
 }
