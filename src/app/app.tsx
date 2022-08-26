@@ -1,4 +1,5 @@
 import { ThemeProvider } from 'styled-components'
+import { CheckoutProvider } from '../context/checkout'
 import { Routes } from '../routes'
 import { GlobalStyle } from '../styles'
 import { lightTheme } from '../styles/theme'
@@ -9,7 +10,9 @@ export function App() {
     <ThemeProvider theme={lightTheme}>
       <AppContainer>
         <ContentContainer>
-          <Routes />
+          <CheckoutProvider>
+            <Routes />
+          </CheckoutProvider>
         </ContentContainer>
       </AppContainer>
       <GlobalStyle />
