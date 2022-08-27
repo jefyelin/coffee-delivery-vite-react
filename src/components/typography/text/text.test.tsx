@@ -13,6 +13,7 @@ describe('Text', () => {
     { variant: 'regularM' },
     { variant: 'regularS' },
     { variant: 'regularItalicS' },
+    { variant: 'regularXS' },
   ])('should render with the correct variant: $variant', ({ variant }) => {
     customRender(<Text variant={variant}>Text with variant: {variant}</Text>)
 

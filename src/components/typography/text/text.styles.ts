@@ -40,6 +40,10 @@ export const RegularItalicTextS = styled(DefaultText)`
   font-size: 0.75rem;
 `
 
+export const RegularTextXS = styled(DefaultRegularText)`
+  font-size: 0.75rem;
+`
+
 export const BoldTextL = styled(DefaultBoldText)`
   font-size: 1.25rem;
 `
