@@ -1,9 +1,13 @@
 import styled from 'styled-components'
 
-export const ContainerSection = styled.section`
+export const Container = styled.div`
   padding: 1.25rem;
   border-radius: 0.375rem;
   background-color: ${({ theme }) => theme.color.base.card};
+
+  @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
+    padding: 2.5rem;
+  }
 `
 
 export const DescriptionContainer = styled.div`

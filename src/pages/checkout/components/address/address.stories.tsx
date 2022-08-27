@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { AppMockStories } from '../../../../utils/stories'
-import { Address } from './address'
+import { Address, AddressFormData } from './address'
 
 export default {
   title: 'Pages/Checkout/Components/Address',
@@ -9,7 +9,7 @@ export default {
 export const Playground: ComponentStory<typeof Address> = () => {
   return (
     <AppMockStories>
-      <Address />
+      <Address handleSubmit={(data: AddressFormData) => console.log(data)} />
     </AppMockStories>
   )
 }

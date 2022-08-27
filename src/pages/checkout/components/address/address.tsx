@@ -5,7 +5,7 @@ import * as zod from 'zod'
 import { Text } from '../../../../components/typography/text'
 import {
   CityAndStateContainer,
-  ContainerSection,
+  Container,
   DescriptionContainer,
   Form,
   InfoContainer,
@@ -16,7 +16,7 @@ import {
 import { Input } from './components/input'
 
 const AddressFormSchema = zod.object({
-  zipCode: zod.string().regex(new RegExp(/\d{8}/), {
+  zipCode: zod.string().regex(new RegExp(/(\d{5})-(\d{3})/), {
     message: 'CEP obrigatório e deve conter 8 caracteres numéricos',
   }),
   street: zod.string().min(1, { message: 'Rua obrigatória' }),
@@ -24,12 +24,18 @@ const AddressFormSchema = zod.object({
   complement: zod.string().optional(),
   neighborhood: zod.string().min(1, { message: 'Bairro obrigatório' }),
   city: zod.string().min(1, { message: 'Cidade obrigatória' }),
-  state: zod.string().length(2, { message: 'UF obrigatório e deve conter 2 caracteres' }),
+  state: zod
+    .string()
+    .regex(new RegExp(/[a-zA-Z]{2}/), { message: 'UF obrigatória e deve conter 2 letras' }),
 })
 
-type AddressFormData = zod.infer<typeof AddressFormSchema>
+export type AddressFormData = zod.infer<typeof AddressFormSchema>
 
-export function Address() {
+interface AddressProps {
+  handleSubmit: (data: AddressFormData) => void
+}
+
+export function Address({ handleSubmit: externalHandleSubmit }: AddressProps) {
   const addressForm = useForm<AddressFormData>({
     resolver: zodResolver(AddressFormSchema),
     defaultValues: {
@@ -47,7 +53,7 @@ export function Address() {
   const { handleSubmit, control } = addressForm
 
   return (
-    <ContainerSection>
+    <Container>
       <DescriptionContainer>
         <MapPinLine size={22} />
         <InfoContainer>
@@ -60,7 +66,7 @@ export function Address() {
         </InfoContainer>
       </DescriptionContainer>
       <FormProvider {...addressForm}>
-        <Form onSubmit={handleSubmit((data) => console.log(data))}>
+        <Form onSubmit={handleSubmit(externalHandleSubmit)}>
           <ZipCodeAndStreetContainer>
             <Controller
               control={control}
@@ -70,7 +76,17 @@ export function Address() {
                   name={name}
                   onBlur={onBlur}
                   onChange={(event) => {
-                    event.target.value.length <= 8 ? onChange(event) : null
+                    const inputValue = event.target.value
+
+                    if (inputValue.length > 9) {
+                      return
+                    }
+
+                    const formatedInputValue = inputValue
+                      .replace(/\D/g, '')
+                      .replace(/^(\d{5})(\d)/, '$1-$2')
+
+                    onChange(formatedInputValue)
                   }}
                   value={value}
                   placeholder='CEP'
@@ -162,9 +178,15 @@ export function Address() {
                     name={name}
                     onBlur={onBlur}
                     onChange={(event) => {
-                      event.target.value.length <= 2
-                        ? onChange(event.target.value.toUpperCase())
-                        : null
+                      const inputValue = event.target.value
+
+                      if (inputValue.length > 2) {
+                        return
+                      }
+
+                      const formatedInputValue = inputValue.replace(/[^a-zA-Z]/g, '').toUpperCase()
+
+                      onChange(formatedInputValue)
                     }}
                     value={value}
                     placeholder='UF'
@@ -174,9 +196,8 @@ export function Address() {
               />
             </CityAndStateContainer>
           </NeighborhoodAndCityAndStateContainer>
-          <input type='submit' />
         </Form>
       </FormProvider>
-    </ContainerSection>
+    </Container>
   )
 }
