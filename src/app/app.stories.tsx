@@ -1,17 +1,18 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { withRouter } from 'storybook-addon-react-router-v6'
+import { MemoryRouter } from 'react-router-dom'
 import { AppMockStories } from '../utils/stories'
 import { App } from './app'
 
 export default {
   title: 'App',
   component: App,
-  decorators: [withRouter],
-  parameters: {
-    reactRouter: {
-      routePath: '/home',
-    },
-  },
+  decorators: [
+    (Story) => (
+      <MemoryRouter>
+        <Story />
+      </MemoryRouter>
+    ),
+  ],
 } as ComponentMeta<typeof App>
 
 export const Playground: ComponentStory<typeof App> = () => {
