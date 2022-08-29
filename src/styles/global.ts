@@ -21,4 +21,8 @@ export const GlobalStyle = createGlobalStyle`
     border: none;
     background: none;
   }
+
+  a {
+    cursor: pointer;
+  }
 `
