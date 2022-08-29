@@ -27,7 +27,7 @@ export function ItemsList() {
             <Image src={product.image.url} alt={product.image.description} />
             <ActionsInfoContainer>
               <Text variant='regularM' color='subtitle'>
-                Café expresso
+                {product.name}
               </Text>
               <ActionsButtonsContainer>
                 <Counter product={product} />
