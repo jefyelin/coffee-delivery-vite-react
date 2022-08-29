@@ -1,1 +1,5 @@
-export type PaymentType = 'money' | 'debit' | 'credit'
+export const enum PaymentType {
+  MONEY = 'money',
+  CREDIT = 'credit',
+  DEBIT = 'debit',
+}
