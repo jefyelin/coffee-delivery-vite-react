@@ -4,6 +4,7 @@ import {
   BoldTextL,
   BoldTextM,
   BoldTextS,
+  BoldTextXM,
   BoldTextXS,
   RegularItalicTextS,
   RegularTextL,
@@ -20,6 +21,7 @@ export type TextVariant =
   | 'regularXS'
   | 'boldL'
   | 'boldM'
+  | 'boldXM'
   | 'boldS'
   | 'boldXS'
 
@@ -66,6 +68,11 @@ export function Text({ children, color, variant, ...props }: TextProps) {
         <BoldTextM customColor={color} {...props}>
           {children}
         </BoldTextM>
+      )}
+      {variant === 'boldXM' && (
+        <BoldTextXM customColor={color} {...props}>
+          {children}
+        </BoldTextXM>
       )}
       {variant === 'boldS' && (
         <BoldTextS customColor={color} {...props}>
