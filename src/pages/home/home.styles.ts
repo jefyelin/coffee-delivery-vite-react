@@ -1,7 +1,11 @@
 import styled from 'styled-components'
-import backgroundUrl from '../../assets/images/background-intro.png'
+import backgroundUrl from '../../assets/images/illustration/background-intro.png'
 
-export const Main = styled.main``
+export const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`
 
 export const InfoSectionContainer = styled.div`
   position: relative;
@@ -9,15 +13,11 @@ export const InfoSectionContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 0 1rem 5.75rem;
+  padding-bottom: 2rem;
 
   section {
     max-width: ${({ theme }) => theme.screen.max};
   }
-`
-
-export const CatalogSectionContainer = styled.div`
-  margin-top: 2rem;
 `
 
 export const Background = styled.div`

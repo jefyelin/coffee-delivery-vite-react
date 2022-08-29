@@ -1,6 +1,6 @@
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 import { useTheme } from 'styled-components'
-import cupOfCoffeImageUrl from '../../../../assets/images/cup-of-coffee.png'
+import cupOfCoffeImageUrl from '../../../../assets/images/illustration/cup-of-coffee.png'
 import { Text } from '../../../../components/typography/text'
 import { Title } from '../../../../components/typography/title'
 import useMediaQuery from '../../../../hooks/media-query/use-media-query'

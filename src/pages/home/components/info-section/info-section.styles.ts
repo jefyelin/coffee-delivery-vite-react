@@ -8,7 +8,6 @@ export const Section = styled.section`
 
   @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
     grid-template-columns: 1.2fr 1fr;
-    margin-top: 5.625rem;
   }
 `
 
