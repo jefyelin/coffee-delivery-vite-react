@@ -1,7 +1,7 @@
 import { Product } from './product'
 
 export type ItemCart = {
-  product?: Product
+  product: Product
   quantity: number
 }
 

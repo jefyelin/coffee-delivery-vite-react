@@ -85,8 +85,8 @@ function cartReducer(state: CartState, action: CartAction): CartState {
 
   const getUpdatedItemsWithNewItem = (): ItemCart[] => {
     const updatedItems = produce(items, (draftItems) => {
-      if (itemNotExists) {
-        draftItems.push({ product: payload?.product, quantity: 1 })
+      if (itemNotExists && payload) {
+        draftItems.push({ product: payload.product, quantity: 1 })
       }
     })
 

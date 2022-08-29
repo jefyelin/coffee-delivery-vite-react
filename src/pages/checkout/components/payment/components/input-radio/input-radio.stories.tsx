@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { PaymentType } from '../../../../../../domain/models/payment'
 import { AppMockStories } from '../../../../../../utils/stories'
 import { InputRadio } from './input-radio'
 
@@ -9,7 +10,7 @@ export default {
 export const Playground: ComponentStory<typeof InputRadio> = () => {
   return (
     <AppMockStories>
-      <InputRadio label='Radio test' paymentType='money' id='radio-test' />
+      <InputRadio label='Radio test' paymentType={PaymentType.MONEY} id='radio-test' />
     </AppMockStories>
   )
 }
