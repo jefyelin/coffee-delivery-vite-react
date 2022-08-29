@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { MemoryRouter } from 'react-router-dom'
+import { ScrollToTop } from '../components/scroll-to-top'
 import { AppMockStories } from '../utils/stories'
 import { App } from './app'
 
@@ -9,6 +10,7 @@ export default {
   decorators: [
     (Story) => (
       <MemoryRouter>
+        <ScrollToTop />
         <Story />
       </MemoryRouter>
     ),

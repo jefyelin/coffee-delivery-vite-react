@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 import { Helmet } from 'react-helmet'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
+import { ScrollToTop } from '../../components/scroll-to-top'
 import { CheckoutProvider } from '../../context/checkout'
 import { GlobalStyle } from '../../styles'
 import { lightTheme } from '../../styles/theme'
@@ -25,7 +26,12 @@ export function AppMockStories({ children, withRoutes = true }: AppStoriesProps)
       </Helmet>
       <ThemeProvider theme={lightTheme}>
         <CheckoutProvider>
-          {withRoutes && <BrowserRouter>{children}</BrowserRouter>}
+          {withRoutes && (
+            <BrowserRouter>
+              <ScrollToTop />
+              {children}
+            </BrowserRouter>
+          )}
           {!withRoutes && <>{children}</>}
           <GlobalStyle />
         </CheckoutProvider>
