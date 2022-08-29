@@ -7,6 +7,7 @@ describe('Text', () => {
   test.each<{ variant: TextVariant }>([
     { variant: 'boldL' },
     { variant: 'boldM' },
+    { variant: 'boldXM' },
     { variant: 'boldS' },
     { variant: 'boldXS' },
     { variant: 'regularL' },

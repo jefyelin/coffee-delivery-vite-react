@@ -22,7 +22,7 @@ describe('Counter', () => {
     ).toBeInTheDocument()
   })
 
-  test('should be able to increment the counter', async () => {
+  test('should be able to increment and decrement the counter', async () => {
     customRender(<Counter product={productMock} />)
 
     expect(screen.getByText('0')).toBeInTheDocument()
@@ -35,5 +35,21 @@ describe('Counter', () => {
         name: `Remover ${productMock.name}`,
       }),
     ).toBeInTheDocument()
+
+    userEvent.click(
+      screen.getByRole('button', {
+        name: `Remover ${productMock.name}`,
+      }),
+    )
+
+    expect(await screen.findByText('0')).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: `Adicionar ${productMock.name}` }),
+    ).toBeInTheDocument()
+    expect(
+      screen.queryByRole('button', {
+        name: `Remover ${productMock.name}`,
+      }),
+    ).not.toBeInTheDocument()
   })
 })
