@@ -9,7 +9,7 @@ export const Container = styled.div`
   background-color: ${({ theme }) => theme.color.base.card};
 
   @media screen and (min-width: ${({ theme }) => theme.screen.md}) {
-    padding: 2.5rem;
+    padding: 1.875rem;
   }
 `
 
@@ -25,7 +25,7 @@ export const InfoContainer = styled.div`
   gap: 0.125rem;
 `
 
-export const Form = styled.form`
+export const FieldsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.75rem;

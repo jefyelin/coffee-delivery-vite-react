@@ -16,7 +16,6 @@ export function InputRadio({ label, paymentType, id, error, ...props }: InputRad
 
   const onLabelClick = () => {
     inputRef.current?.click()
-    console.log('aaa')
   }
 
   return (

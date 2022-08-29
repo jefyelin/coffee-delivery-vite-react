@@ -1,33 +1,22 @@
 import { CurrencyDollar } from 'phosphor-react'
-import { Controller, FormProvider, useForm } from 'react-hook-form'
+import { Control, Controller } from 'react-hook-form'
 import { Text } from '../../../../components/typography/text'
 import { PaymentType } from '../../../../domain/models/payment'
+import { CheckoutFormData } from '../../checkout'
 import { InputRadio } from './components/input-radio'
 import {
   Container,
   DescriptionContainer,
-  Form,
+  FieldsContainer,
   InfoContainer,
   InputRadioContainer,
 } from './payment.styles'
-
-export type PaymentFormData = {
-  paymentType: PaymentType
-}
-
 interface PaymentProps {
-  handleSubmit: (data: PaymentFormData) => void
+  control: Control<CheckoutFormData>
+  error?: boolean
 }
 
-export function Payment({ handleSubmit: externalHandleSubmit }: PaymentProps) {
-  const paymentForm = useForm<PaymentFormData>({
-    defaultValues: {
-      paymentType: undefined,
-    },
-  })
-
-  const { control, handleSubmit, formState } = paymentForm
-
+export function Payment({ control, error }: PaymentProps) {
   return (
     <Container>
       <DescriptionContainer>
@@ -41,68 +30,66 @@ export function Payment({ handleSubmit: externalHandleSubmit }: PaymentProps) {
           </Text>
         </InfoContainer>
       </DescriptionContainer>
-      <FormProvider {...paymentForm}>
-        <Form onSubmit={handleSubmit(externalHandleSubmit)}>
-          <InputRadioContainer>
-            <Controller
-              control={control}
-              name='paymentType'
-              rules={{ required: true }}
-              render={({ field: { name, onBlur, onChange }, fieldState: { error } }) => (
-                <InputRadio
-                  id='payment-1'
-                  label='cartão de crédito'
-                  paymentType='credit'
-                  name={name}
-                  onBlur={onBlur}
-                  onChange={onChange}
-                  value='credit'
-                  error={!!error}
-                />
-              )}
-            />
-            <Controller
-              control={control}
-              name='paymentType'
-              rules={{ required: true }}
-              render={({ field: { name, onBlur, onChange }, fieldState: { error } }) => (
-                <InputRadio
-                  id='payment-2'
-                  label='cartão de débito'
-                  paymentType='debit'
-                  name={name}
-                  onBlur={onBlur}
-                  onChange={onChange}
-                  value='debit'
-                  error={!!error}
-                />
-              )}
-            />
-            <Controller
-              control={control}
-              name='paymentType'
-              rules={{ required: true }}
-              render={({ field: { name, onBlur, onChange }, fieldState: { error } }) => (
-                <InputRadio
-                  id='payment-3'
-                  label='dinheiro'
-                  paymentType='money'
-                  name={name}
-                  onBlur={onBlur}
-                  onChange={onChange}
-                  value='money'
-                  error={!!error}
-                />
-              )}
-            />
-          </InputRadioContainer>
-          {!!formState.errors.paymentType && (
-            <Text variant='regularS' color='error'>
-              Você precisa selecionar a forma de pagamento
-            </Text>
-          )}
-        </Form>
-      </FormProvider>
+      <FieldsContainer>
+        <InputRadioContainer>
+          <Controller
+            control={control}
+            name='paymentType'
+            rules={{ required: true }}
+            render={({ field: { name, onBlur, onChange }, fieldState: { error } }) => (
+              <InputRadio
+                id='payment-1'
+                label='cartão de crédito'
+                paymentType={PaymentType.CREDIT}
+                name={name}
+                onBlur={onBlur}
+                onChange={onChange}
+                value='credit'
+                error={!!error}
+              />
+            )}
+          />
+          <Controller
+            control={control}
+            name='paymentType'
+            rules={{ required: true }}
+            render={({ field: { name, onBlur, onChange }, fieldState: { error } }) => (
+              <InputRadio
+                id='payment-2'
+                label='cartão de débito'
+                paymentType={PaymentType.DEBIT}
+                name={name}
+                onBlur={onBlur}
+                onChange={onChange}
+                value='debit'
+                error={!!error}
+              />
+            )}
+          />
+          <Controller
+            control={control}
+            name='paymentType'
+            rules={{ required: true }}
+            render={({ field: { name, onBlur, onChange }, fieldState: { error } }) => (
+              <InputRadio
+                id='payment-3'
+                label='dinheiro'
+                paymentType={PaymentType.MONEY}
+                name={name}
+                onBlur={onBlur}
+                onChange={onChange}
+                value='money'
+                error={!!error}
+              />
+            )}
+          />
+        </InputRadioContainer>
+        {error && (
+          <Text variant='regularS' color='error'>
+            Você precisa selecionar a forma de pagamento
+          </Text>
+        )}
+      </FieldsContainer>
     </Container>
   )
 }

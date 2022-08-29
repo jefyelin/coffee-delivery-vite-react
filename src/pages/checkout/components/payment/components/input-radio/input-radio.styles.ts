@@ -8,8 +8,8 @@ export const Label = styled.label<LabelProps>`
   display: flex;
   align-items: center;
   color: ${({ theme }) => theme.color.product.purple};
-  gap: 0.75rem;
-  padding: 1rem;
+  gap: 0.25rem;
+  padding: 0.75rem 0.5rem;
   background-color: ${({ theme }) => theme.color.base.button};
   border: 0.0625rem solid
     ${({ theme, error }) => (error ? theme.color.product.error : theme.color.base.button)};
